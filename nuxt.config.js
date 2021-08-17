@@ -1,6 +1,7 @@
 module.exports={
   // Global page headers: https://go.nuxtjs.dev/config-head
   dev: process.env.NODE_ENV !== 'production',
+  telemetry: false,
   head: {
     title: 'voyansi_challenge',
     htmlAttrs: {

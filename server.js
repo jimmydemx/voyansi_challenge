@@ -1,6 +1,8 @@
 const { Nuxt, Builder } = require('nuxt')
 const koa=require('koa')
-
+const room=require('./server/Interface/room')
+const mongoose =require ('mongoose')
+const dbConfig =require ("./server/util/mongo.js")
 
 const app = new koa()
 const host = process.env.HOST || '127.0.0.1' 
@@ -12,6 +14,8 @@ const config = require('./nuxt.config.js')
 
 config.dev = !(app.env === 'production')
 
+
+
 async function start() {
   // Instantiate nuxt.js
   const nuxt = new Nuxt(config)
@@ -21,7 +25,15 @@ async function start() {
     const builder = new Builder(nuxt)
     await builder.build()
   }
+
+mongoose.connect(dbConfig.dbs,{
+    useNewUrlParser: true,
+  })
  
+app.use(room.routes())
+.use(room.allowedMethods())
+
+
 
 app.use(ctx => {
     ctx.status = 200 // koa defaults to 404 when it sees that status is unset
