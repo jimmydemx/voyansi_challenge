@@ -26,7 +26,7 @@ async function start() {
     await builder.build()
   }
 
-mongoose.connect(dbConfig.dbs,{
+mongoose.connect(process.env.MONGODB_URI || dbConfig.dbs,{
     useNewUrlParser: true,
   })
  
