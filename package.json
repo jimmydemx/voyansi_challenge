@@ -6,7 +6,8 @@
     "dev": "NODE_ENV=development nodemon server.js --exec babel-node",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "axios": "^0.21.1",
