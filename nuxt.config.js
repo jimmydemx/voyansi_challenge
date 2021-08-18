@@ -8,6 +8,8 @@ module.exports={
   // Global page headers: https://go.nuxtjs.dev/config-head
   dev: process.env.NODE_ENV !== 'production',
   telemetry: false,
+
+  env:{MONGOLAB_URI:"mongodb+srv://voyansi-challenge-james:1qaz2wsx@cluster0.t2z17.mongodb.net/voyansi-challenge-james?retryWrites=true&w=majority"},
   publicRuntimeConfig: {
     MONGOLAB_URI:"123"
 

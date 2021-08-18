@@ -29,7 +29,6 @@ async function start() {
   }
 
 
-console.log("bbb",MONGOLAB_URI) 
 console.log("aaa",process.env.MONGOLAB_URI)
 mongoose.connect(dbConfig(),{
     useNewUrlParser: true,
