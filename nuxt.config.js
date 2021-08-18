@@ -1,7 +1,18 @@
+// const envConfig = require('dotenv').config({
+//   path: `.env${process.env.ENV ? `.${process.env.ENV}` : ''}`
+// })
+
+require('dotenv').config()
+
 module.exports={
   // Global page headers: https://go.nuxtjs.dev/config-head
   dev: process.env.NODE_ENV !== 'production',
   telemetry: false,
+  publicRuntimeConfig: {
+    MONGOLAB_URI:"123"
+
+  },
+
   head: {
     title: 'voyansi_challenge',
     htmlAttrs: {
@@ -37,6 +48,8 @@ module.exports={
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+
+
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

@@ -1,4 +1,5 @@
-import  Mongoose  from "mongoose";
+// import  Mongoose  from "mongoose";
+const Mongoose=require("mongoose");
 const Schema=Mongoose.Schema
 
 const room= new Schema({
@@ -18,4 +19,4 @@ const room= new Schema({
 
 })
 
-export default Mongoose.model("room",room)
+module.exports=Mongoose.model("room",room)

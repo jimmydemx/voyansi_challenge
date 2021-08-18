@@ -1,5 +1,6 @@
 const { Nuxt, Builder } = require('nuxt')
 const koa=require('koa')
+const bodyParser=require('koa-bodyparser')
 const room=require('./server/Interface/room')
 const mongoose =require ('mongoose')
 const dbConfig =require ("./server/util/mongo.js")
@@ -12,9 +13,10 @@ const config = require('./nuxt.config.js')
 
 // Import and Set Nuxt.js options
 
-config.dev = !(app.env === 'production')
 
-
+app.use(bodyParser({
+  extendTypes:['json','form','text']
+}))
 
 async function start() {
   // Instantiate nuxt.js
@@ -26,7 +28,9 @@ async function start() {
     await builder.build()
   }
 
-mongoose.connect(process.env.MONGODB_URI || dbConfig.dbs,{
+
+console.log("aaa",process.env.MONGOLAB_URI)
+mongoose.connect(dbConfig(),{
     useNewUrlParser: true,
   })
  
